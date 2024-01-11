@@ -24,7 +24,7 @@ const TasksPage = () => {
         </div>
       )}
 
-      <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3 p-10">
         {tasks.map((task) => (
           <TaskCard task={task} key={task._id} />
         ))}

@@ -21,7 +21,7 @@ const LoginPage = () => {
     if (isAuthenticated) {
       navigate("/tasks");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   return (
@@ -38,7 +38,7 @@ const LoginPage = () => {
             label="Write your email"
             type="email"
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="youremail@domain.com"
             {...register("email")}
           />
           <p>{errors.email?.message}</p>

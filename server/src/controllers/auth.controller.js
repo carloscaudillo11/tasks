@@ -15,7 +15,8 @@ export const register = async (req, res) => {
         message: ["The email is already in use"],
       });
 
-    const passwordHash = await bcrypt.hash(password, 10);
+    const salt = await bcrypt.genSalt();
+    const passwordHash = await bcrypt.hash(password, salt);
 
     const newUser = new User({
       username,
@@ -24,7 +25,7 @@ export const register = async (req, res) => {
     });
 
     const userSaved = await newUser.save();
-
+ 
     const token = await createAccessToken({ id: userSaved._id });
 
     res.cookie("token", token);
@@ -92,7 +93,7 @@ export const verifyToken = async (req, res) => {
   }
 };
 
-export const logout = async (req, res) => {
+export const logout = async (_req, res) => {
   res.clearCookie("token");
   return res.send("logout succesfull");
 };

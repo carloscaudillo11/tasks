@@ -56,34 +56,36 @@ const TaskFormPage = () => {
   }, []);
 
   return (
-    <Card>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Label htmlFor="title">Title</Label>
-        <Input
-          type="text"
-          name="title"
-          placeholder="Title"
-          {...register("title")}
-          autoFocus
-        />
-        {errors.title && (
-          <p className="text-xs italic text-red-500">Please enter a title.</p>
-        )}
+    <div className="h-[calc(100vh-100px)] flex items-center justify-center">
+      <Card>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Label htmlFor="title">Title</Label>
+          <Input
+            type="text"
+            name="title"
+            placeholder="Title"
+            {...register("title")}
+            autoFocus
+          />
+          {errors.title && (
+            <p className="text-xs italic text-red-500">Please enter a title.</p>
+          )}
 
-        <Label htmlFor="description">Description</Label>
-        <Textarea
-          name="description"
-          id="description"
-          rows="3"
-          placeholder="Description"
-          {...register("description")}
-        ></Textarea>
+          <Label htmlFor="description">Description</Label>
+          <Textarea
+            name="description"
+            id="description"
+            rows="3"
+            placeholder="Description"
+            {...register("description")}
+          ></Textarea>
 
-        <Label htmlFor="date">Date</Label>
-        <Input type="date" name="date" {...register("date")} />
-        <Button>Save</Button>
-      </form>
-    </Card>
+          <Label htmlFor="date">Date</Label>
+          <Input type="date" name="date" {...register("date")} />
+          <Button>Save</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 
